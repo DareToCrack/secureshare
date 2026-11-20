@@ -79,7 +79,7 @@ export default function App() {
 
   return (
     <View style={styles.root}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.container}>
           <Text style={styles.title}>🔒 SecureShare</Text>
@@ -237,7 +237,7 @@ function UploadScreen() {
       <TextInput
         style={styles.input}
         placeholder="Leave empty for a key-in-link share"
-        placeholderTextColor="#64748b"
+        placeholderTextColor="#667085"
         secureTextEntry
         value={passphrase}
         onChangeText={setPassphrase}
@@ -263,7 +263,7 @@ function UploadScreen() {
       <TextInput
         style={styles.input}
         placeholder="Or custom hours (1–168)"
-        placeholderTextColor="#64748b"
+        placeholderTextColor="#667085"
         keyboardType="numeric"
         value={customHours}
         editable={!busy}
@@ -276,7 +276,7 @@ function UploadScreen() {
 
       <View style={styles.switchRow}>
         <Text style={styles.switchLabel}>Delete after first download</Text>
-        <Switch value={burn} onValueChange={setBurn} disabled={busy} trackColor={{ true: '#22c55e' }} />
+        <Switch value={burn} onValueChange={setBurn} disabled={busy} trackColor={{ true: '#2563eb' }} thumbColor="#ffffff" activeThumbColor="#ffffff" />
       </View>
 
       <Pressable
@@ -387,7 +387,7 @@ function DownloadScreen({ deepLink }) {
       <TextInput
         style={styles.input}
         placeholder="https://…/d/<id>#key=…"
-        placeholderTextColor="#64748b"
+        placeholderTextColor="#667085"
         value={link}
         onChangeText={setLink}
         editable={!busy}
@@ -411,7 +411,7 @@ function DownloadScreen({ deepLink }) {
           <Text style={styles.metaRow}>Expires: <Text style={styles.metaValue}>{formatExpiry(meta.expiresAt)}</Text></Text>
           <Text style={styles.metaRow}>Protection: <Text style={styles.metaValue}>{meta.salt ? 'Passphrase required' : 'Key in link'}</Text></Text>
           {meta.burnAfterReading && (
-            <Text style={styles.metaRow}>⚠️ <Text style={styles.metaValue}>Burns after first download — this link works once.</Text></Text>
+            <Text style={styles.burnRow}>⚠️ <Text style={styles.burnValue}>Burns after first download — this link works once.</Text></Text>
           )}
           {meta.downloads > 0 && (
             <Text style={styles.metaRow}>Downloads so far: <Text style={styles.metaValue}>{meta.downloads}</Text></Text>
@@ -423,7 +423,7 @@ function DownloadScreen({ deepLink }) {
               <TextInput
                 style={styles.input}
                 placeholder="Enter the file passphrase"
-                placeholderTextColor="#64748b"
+                placeholderTextColor="#667085"
                 secureTextEntry
                 value={dlPassphrase}
                 onChangeText={setDlPassphrase}
@@ -456,7 +456,7 @@ function DownloadScreen({ deepLink }) {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#0b1220' },
+  root: { flex: 1, backgroundColor: '#f7f7f4' },
   scroll: { flexGrow: 1 },
   container: {
     flex: 1,
@@ -465,108 +465,110 @@ const styles = StyleSheet.create({
     width: '100%',
     alignSelf: 'center',
   },
-  title: { fontSize: 30, fontWeight: '800', color: '#f1f5f9', marginTop: 24, textAlign: 'center' },
-  tagline: { fontSize: 14, color: '#94a3b8', textAlign: 'center', marginTop: 6, marginBottom: 16 },
+  title: { fontSize: 30, fontWeight: '800', color: '#22262b', marginTop: 24, textAlign: 'center' },
+  tagline: { fontSize: 14, color: '#667085', textAlign: 'center', marginTop: 6, marginBottom: 16 },
   notice: {
-    backgroundColor: '#12233d',
-    borderColor: '#1e3a5f',
+    backgroundColor: '#eff6ff',
+    borderColor: '#e7e4de',
     borderWidth: 1,
     borderRadius: 10,
     padding: 12,
     marginBottom: 18,
   },
-  noticeText: { color: '#bae6fd', fontSize: 13, lineHeight: 19, textAlign: 'center' },
-  tabs: { flexDirection: 'row', backgroundColor: '#111c33', borderRadius: 10, padding: 4, marginBottom: 16 },
+  noticeText: { color: '#1e3a5f', fontSize: 13, lineHeight: 19, textAlign: 'center' },
+  tabs: { flexDirection: 'row', backgroundColor: '#e7e4de', borderRadius: 10, padding: 4, marginBottom: 16 },
   tab: { flex: 1, paddingVertical: 10, borderRadius: 8, alignItems: 'center' },
-  tabActive: { backgroundColor: '#22c55e' },
-  tabText: { color: '#94a3b8', fontWeight: '700', fontSize: 15 },
-  tabTextActive: { color: '#04120a' },
+  tabActive: { backgroundColor: '#2563eb' },
+  tabText: { color: '#667085', fontWeight: '700', fontSize: 15 },
+  tabTextActive: { color: '#ffffff' },
   card: {
-    backgroundColor: '#111c33',
+    backgroundColor: '#ffffff',
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#1e293b',
+    borderColor: '#e7e4de',
     padding: 18,
     marginBottom: 24,
   },
-  sectionTitle: { fontSize: 19, fontWeight: '700', color: '#f1f5f9', marginBottom: 14 },
-  label: { fontSize: 13, fontWeight: '700', color: '#cbd5e1', marginTop: 14, marginBottom: 6 },
+  sectionTitle: { fontSize: 19, fontWeight: '700', color: '#22262b', marginBottom: 14 },
+  label: { fontSize: 13, fontWeight: '700', color: '#22262b', marginTop: 14, marginBottom: 6 },
   input: {
-    backgroundColor: '#0b1220',
+    backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: '#334155',
+    borderColor: '#e7e4de',
     borderRadius: 9,
-    color: '#f1f5f9',
+    color: '#22262b',
     fontSize: 15,
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
-  hint: { fontSize: 12, color: '#64748b', marginTop: 6, lineHeight: 17 },
+  hint: { fontSize: 12, color: '#667085', marginTop: 6, lineHeight: 17 },
   pickButton: {
-    backgroundColor: '#1e293b',
+    backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: '#38bdf8',
+    borderColor: '#2563eb',
     borderRadius: 9,
     paddingVertical: 13,
     alignItems: 'center',
   },
-  pickButtonText: { color: '#7dd3fc', fontWeight: '700', fontSize: 15 },
-  fileInfo: { color: '#e2e8f0', fontSize: 14, marginTop: 10 },
+  pickButtonText: { color: '#2563eb', fontWeight: '700', fontSize: 15 },
+  fileInfo: { color: '#22262b', fontSize: 14, marginTop: 10 },
   presetRow: { flexDirection: 'row', gap: 8 },
   preset: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#334155',
+    borderColor: '#e7e4de',
     borderRadius: 9,
     paddingVertical: 9,
     alignItems: 'center',
   },
-  presetActive: { backgroundColor: '#14532d', borderColor: '#22c55e' },
-  presetText: { color: '#94a3b8', fontWeight: '700', fontSize: 13 },
-  presetTextActive: { color: '#bbf7d0' },
+  presetActive: { backgroundColor: '#eff6ff', borderColor: '#2563eb' },
+  presetText: { color: '#667085', fontWeight: '700', fontSize: 13 },
+  presetTextActive: { color: '#1e3a5f' },
   switchRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 16 },
-  switchLabel: { color: '#cbd5e1', fontSize: 14, fontWeight: '600' },
+  switchLabel: { color: '#22262b', fontSize: 14, fontWeight: '600' },
   primaryButton: {
-    backgroundColor: '#22c55e',
+    backgroundColor: '#2563eb',
     borderRadius: 9,
     paddingVertical: 13,
     alignItems: 'center',
     marginTop: 18,
   },
-  primaryButtonText: { color: '#04120a', fontWeight: '800', fontSize: 16 },
+  primaryButtonText: { color: '#ffffff', fontWeight: '800', fontSize: 16 },
   buttonDisabled: { opacity: 0.45 },
-  statusText: { color: '#94a3b8', fontSize: 13, marginTop: 10, textAlign: 'center' },
-  errorText: { color: '#fca5a5', fontSize: 13, marginTop: 12, lineHeight: 18 },
-  successText: { color: '#86efac', fontSize: 13, marginTop: 12, lineHeight: 18 },
+  statusText: { color: '#667085', fontSize: 13, marginTop: 10, textAlign: 'center' },
+  errorText: { color: '#b91c1c', fontSize: 13, marginTop: 12, lineHeight: 18 },
+  successText: { color: '#15803d', fontSize: 13, marginTop: 12, lineHeight: 18 },
   shareBox: {
-    backgroundColor: '#0b1220',
+    backgroundColor: '#f0fdf4',
     borderWidth: 1,
-    borderColor: '#22c55e',
+    borderColor: '#e7e4de',
     borderRadius: 10,
     padding: 14,
     marginTop: 16,
   },
-  shareTitle: { color: '#bbf7d0', fontWeight: '800', fontSize: 15, marginBottom: 8 },
-  shareLink: { color: '#7dd3fc', fontSize: 13, lineHeight: 19, marginBottom: 10 },
-  shareNote: { color: '#94a3b8', fontSize: 12, lineHeight: 17, marginBottom: 6 },
+  shareTitle: { color: '#15803d', fontWeight: '800', fontSize: 15, marginBottom: 8 },
+  shareLink: { color: '#2563eb', fontSize: 13, lineHeight: 19, marginBottom: 10 },
+  shareNote: { color: '#667085', fontSize: 12, lineHeight: 17, marginBottom: 6 },
   copyButton: {
-    backgroundColor: '#38bdf8',
+    backgroundColor: '#2563eb',
     borderRadius: 9,
     paddingVertical: 11,
     alignItems: 'center',
     marginTop: 8,
   },
-  copyButtonText: { color: '#082f49', fontWeight: '800', fontSize: 15 },
+  copyButtonText: { color: '#ffffff', fontWeight: '800', fontSize: 15 },
   secondaryButton: { paddingVertical: 10, alignItems: 'center', marginTop: 6 },
-  secondaryButtonText: { color: '#94a3b8', fontWeight: '700', fontSize: 14 },
+  secondaryButtonText: { color: '#667085', fontWeight: '700', fontSize: 14 },
   metaBox: {
-    backgroundColor: '#0b1220',
+    backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: '#334155',
+    borderColor: '#e7e4de',
     borderRadius: 10,
     padding: 14,
     marginTop: 16,
   },
-  metaRow: { color: '#94a3b8', fontSize: 14, marginBottom: 6 },
-  metaValue: { color: '#e2e8f0', fontWeight: '600' },
+  metaRow: { color: '#667085', fontSize: 14, marginBottom: 6 },
+  metaValue: { color: '#22262b', fontWeight: '600' },
+  burnRow: { color: '#92400e', fontSize: 14, marginBottom: 6 },
+  burnValue: { color: '#92400e', fontWeight: '600' },
 });

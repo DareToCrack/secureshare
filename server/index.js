@@ -298,7 +298,7 @@ function createApp(options = {}) {
     res.set('Content-Security-Policy', "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'");
     res.send(`<!doctype html>
 <html><head><meta charset="utf-8"><title>SecureShare</title>
-<style>body{background:#0b1220;color:#e2e8f0;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;text-align:center}h1{font-size:20px}</style>
+<style>body{background:#f7f7f4;color:#22262b;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;text-align:center}h1{font-size:20px}</style>
 </head><body><div><h1>🔒 SecureShare</h1><p>Opening your secure file…</p></div>
 <script>
 (function () {

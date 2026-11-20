@@ -1,0 +1,1 @@
+{"description":"SecureShare — encrypted file sharing (AES-256-GCM, client-side encryption, auto-expiry). See README.md. Tests: node --test tests/crypto.test.mjs tests/server.test.mjs","name":"secureshare","private":true,"scripts":{"test":"node --test tests/crypto.test.mjs tests/server.test.mjs"},"version":"1.0.0"}

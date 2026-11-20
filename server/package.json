@@ -1,0 +1,1 @@
+{"dependencies":{"cors":"^2.8.5","express":"^4.21.2","helmet":"^8.0.0","multer":"^2.5.0"},"description":"SecureShare API server — stores only encrypted blobs, never keys or plaintext filenames.","engines":{"node":">=18"},"main":"index.js","name":"secureshare-server","private":true,"scripts":{"start":"node index.js"},"version":"1.0.0"}

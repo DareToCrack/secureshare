@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Server storage (encrypted blobs + metadata) — never commit
+server/storage/
+server/.env
+
+# App build outputs
+app/dist/
+app/.expo/
+app/node_modules/
+
+# Env files
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+*.log
